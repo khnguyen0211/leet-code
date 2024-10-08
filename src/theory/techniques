@@ -1,0 +1,16 @@
+*** convert-char-to-int
+
+int[] counters = new int[26] -> 26 alphabet characters
+
+for(char c : arr) {
+    /**
+       * c = 'a' -> counters[0]
+       * c = 'b' -> counters[1]
+       * ...
+    */
+   counters[c - 'a']++;
+}
+
+*** two-pointers-technique
+pointer i loop array
+pointer k is always point the correct index
