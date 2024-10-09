@@ -5,5 +5,13 @@ public interface IProblemDefinition {
       * @param s is a string
      * @return int
      */
-    int p387_firstUniqueChar(String s);
+    int p387_first_unique_char(String s);
+
+    /**
+     *Given an integer array arr, return the third distinct maximum number in this array.
+     * If the third maximum does not exist, return the maximum number.
+     * @param arr is an int array
+     * @return index of the third maximum in array
+     */
+    int p414_the_third_maximum(int[] arr);
 }

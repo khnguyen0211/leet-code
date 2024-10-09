@@ -7,7 +7,7 @@ public class Solution implements  IProblemDefinition{
      * beat: 51.11%
      */
     @Override
-    public int p387_firstUniqueChar(String s) {
+    public int p387_first_unique_char(String s) {
         char[] arr = s.toCharArray();
         int k = 0;
         for(int i = 0; i < arr.length; i++) {
@@ -21,6 +21,7 @@ public class Solution implements  IProblemDefinition{
         }
         return k;
     }
+
     /**
      * runtime: 4 ms
      * beat: 99.08%
@@ -45,4 +46,45 @@ public class Solution implements  IProblemDefinition{
         }
         return -1;
     }
+
+    /**
+     * runtime: 1 ms
+     * beat: 96.72%
+     * memory: 43.32 mb
+     * beat: 40.36%
+     */
+    @Override
+    public int p414_the_third_maximum(int[] arr) {
+        long[] arrMax = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
+        for (int j : arr) {
+            insertIntoArray(arrMax, j);
+        }
+        if(arrMax[2] == Long.MIN_VALUE) {
+            return (int)arrMax[0];
+        }
+        return (int)arrMax[2];
+    }
+
+
+    public void insertIntoArray(long[] arr, int value) {
+        int i = 0;
+        while (i < arr.length) {
+            if(arr[i] == value) {
+                return;
+            } else if(arr[i] > value) {
+                i++;
+            } else  {
+                break;
+            }
+        }
+
+        if(i == arr.length) {
+            return;
+        }
+        for (int j = arr.length - 1; j > i; j--) {
+            arr[j] = arr[j - 1];
+        }
+        arr[i] = value;
+    }
+
 }
