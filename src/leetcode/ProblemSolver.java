@@ -1,4 +1,6 @@
-public class Solution implements  IProblemDefinition{
+package leetcode;
+
+public class ProblemSolver implements  IProblemDefinition{
 
     /**
      * runtime: 13 ms
@@ -65,7 +67,6 @@ public class Solution implements  IProblemDefinition{
         return (int)arrMax[2];
     }
 
-
     public void insertIntoArray(long[] arr, int value) {
         int i = 0;
         while (i < arr.length) {
@@ -87,4 +88,21 @@ public class Solution implements  IProblemDefinition{
         arr[i] = value;
     }
 
+    @Override
+    /**
+     * Using brute force algorithm
+     * Time Limit Exceeded
+     */
+    public int p962_max_width_ramp(int[] arr) {
+        int n = arr.length;
+        int max = 0;
+        for(int i = 0; i < n - max; i++) {
+            for (int j = i + max; j < n; j++) {
+                if(arr[j] >= arr[i]) {
+                    max = Math.max(max, j - i);
+                }
+            }
+        }
+        return max;
+    }
 }
