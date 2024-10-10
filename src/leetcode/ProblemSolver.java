@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.Stack;
+
 public class ProblemSolver implements  IProblemDefinition{
 
     /**
@@ -104,5 +106,28 @@ public class ProblemSolver implements  IProblemDefinition{
             }
         }
         return max;
+    }
+
+    /**
+     * Using monotonic stack
+     * Time Limit Exceeded
+     */
+    //[9,8,1,0,1,9,4,0,4,1]
+    public int p962_max_width_ramp_v2(int[] arr) {
+        int n = arr.length;
+        int maxWidth = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            if(stack.isEmpty() || arr[stack.peek()] > arr[i]) {
+                stack.push(i);
+            }
+        }
+        for (int i = n - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && arr[i] >= arr[stack.peek()]) {
+                maxWidth = Math.max(maxWidth, i - stack.peek());
+                stack.pop();
+            }
+        }
+        return maxWidth;
     }
 }
