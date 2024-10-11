@@ -1,5 +1,6 @@
 package leetcode;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 public class ProblemSolver implements  IProblemDefinition{
@@ -36,10 +37,10 @@ public class ProblemSolver implements  IProblemDefinition{
         int[] counters = new int[26];
         char[] arr = s.toCharArray();
         for(char c : arr) {
-            /**
-             * c = 'a' -> counters[0]
-             * c = 'b' -> counters[1]
-             * ...
+            /*
+              c = 'a' -> counters[0]
+              c = 'b' -> counters[1]
+              ...
              */
             counters[c - 'a']++;
         }
@@ -108,11 +109,12 @@ public class ProblemSolver implements  IProblemDefinition{
         return max;
     }
 
+
+
     /**
      * Using monotonic stack
      * Time Limit Exceeded
      */
-    //[9,8,1,0,1,9,4,0,4,1]
     public int p962_max_width_ramp_v2(int[] arr) {
         int n = arr.length;
         int maxWidth = 0;
@@ -129,5 +131,33 @@ public class ProblemSolver implements  IProblemDefinition{
             }
         }
         return maxWidth;
+    }
+
+
+    @Override
+    /**
+     * runtime: 92 ms
+     * beat: 14.62%
+     * memory: 50.32 mb
+     * beat: 42.10%
+     */
+    public int p1942_smallest_chair(int[][] times, int targetFriend) {
+        int[] targetTime = times[targetFriend];
+        Arrays.sort(times, (a, b) -> Integer.compare(a[0], b[0]));
+        int n = times.length;
+        int[] occupied = new int[n];
+        for(int i = 0; i < n; i++) {
+            if(times[i][0] > targetTime[0]) {
+                break;
+            }
+            for (int j = 0; j < n; j++) {
+                if(times[i][0] >= occupied[j]) {
+                    occupied[j] = times[i][1];
+                    if (Arrays.equals(times[i], targetTime)) return j;
+                    break;
+                }
+            }
+        }
+        return 0;
     }
 }

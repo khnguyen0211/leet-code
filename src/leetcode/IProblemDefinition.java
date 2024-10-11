@@ -4,7 +4,7 @@ public interface IProblemDefinition {
     /**
      * Given a string s, find the first non-repeating character in it and return its index.
      * If it does not exist, return -1.
-      * @param s is a string
+     * @param s is a string
      * @return int
      */
     int p387_first_unique_char(String s);
@@ -17,11 +17,19 @@ public interface IProblemDefinition {
      */
     int p414_the_third_maximum(int[] arr);
 
-    /**A ramp in an integer array arr is a pair (i, j) for which i < j and arr[i] <= arr[j].
+    /**
+     * A ramp in an integer array arr is a pair (i, j) for which i < j and arr[i] <= arr[j].
      * The width of such a ramp is j - i.
-     *
      * @param arr : an integer array
      * @return ramp array length
      */
      int p962_max_width_ramp(int[] arr);
+
+
+    /**
+     * There is a party where n friends numbered from 0 to n - 1 are attending.
+     * There is an infinite number of chairs in this party that are numbered from 0 to infinity. W
+     * hen a friend arrives at the party, they sit on the unoccupied chair with the smallest number.
+     */
+    int p1942_smallest_chair(int[][] times, int targetFriend);
 }
