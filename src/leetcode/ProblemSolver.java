@@ -91,11 +91,11 @@ public class ProblemSolver implements  IProblemDefinition{
         arr[i] = value;
     }
 
-    @Override
     /**
      * Using brute force algorithm
      * Time Limit Exceeded
      */
+    @Override
     public int p962_max_width_ramp(int[] arr) {
         int n = arr.length;
         int max = 0;
@@ -134,13 +134,13 @@ public class ProblemSolver implements  IProblemDefinition{
     }
 
 
-    @Override
     /**
      * runtime: 92 ms
      * beat: 14.62%
      * memory: 50.32 mb
      * beat: 42.10%
      */
+    @Override
     public int p1942_smallest_chair(int[][] times, int targetFriend) {
         int[] targetTime = times[targetFriend];
         Arrays.sort(times, (a, b) -> Integer.compare(a[0], b[0]));
@@ -187,5 +187,20 @@ public class ProblemSolver implements  IProblemDefinition{
         }
         arr[n] = p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
         return arr[n];
+    }
+
+    /**
+     * runtime: 2 ms
+     * beat: 95.17%
+     * memory: 46.78 mb
+     * beat: 22.75%
+     */
+    @Override
+    public int[] p338_count_bits(int n) {
+        int[] results = new int[n + 1];
+        for(int i = 0; i <= n; i++) {
+            results[i] = Integer.bitCount(i);
+        }
+        return results;
     }
 }

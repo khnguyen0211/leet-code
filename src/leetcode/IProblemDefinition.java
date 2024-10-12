@@ -34,4 +34,12 @@ public interface IProblemDefinition {
     int p1942_smallest_chair(int[][] times, int targetFriend);
 
     int p1137_tribonacci(int n);
+
+    /**
+     * Given an integer n, return an array has length n + 1 such that for each i (0 <= i <= n),
+     * ans[i] is the number of 1's in the binary representation of i.
+     * @param n
+     * @return
+     */
+    int[] p338_count_bits(int n);
 }
