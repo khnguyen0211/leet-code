@@ -160,4 +160,32 @@ public class ProblemSolver implements  IProblemDefinition{
         }
         return 0;
     }
+
+    /**
+     * runtime: 1 ms
+     * beat: 100%
+     * memory: 44.63 mb
+     * beat: 5.74%
+     */
+    private final int[] arr = new int[10000];
+    @Override
+    public int p1137_tribonacci(int n) {
+        if(arr[n] != 0) {
+            return arr[n];
+        }
+        if(n == 0) {
+            return 0;
+        }
+        if(n == 1 || n == 2) {
+            return 1;
+        }
+        if(n == 3) {
+            arr[0] = 0;
+            arr[1] = 1;
+            arr[2] = 1;
+            return 2;
+        }
+        arr[n] = p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
+        return arr[n];
+    }
 }

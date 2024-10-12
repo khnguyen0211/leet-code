@@ -32,4 +32,6 @@ public interface IProblemDefinition {
      * hen a friend arrives at the party, they sit on the unoccupied chair with the smallest number.
      */
     int p1942_smallest_chair(int[][] times, int targetFriend);
+
+    int p1137_tribonacci(int n);
 }
