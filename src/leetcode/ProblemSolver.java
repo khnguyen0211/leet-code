@@ -167,7 +167,7 @@ public class ProblemSolver implements  IProblemDefinition{
      * memory: 44.63 mb
      * beat: 5.74%
      */
-    private final int[] arr = new int[10000];
+    private final int[] arr = new int[100];
     @Override
     public int p1137_tribonacci(int n) {
         if(arr[n] != 0) {
@@ -202,5 +202,36 @@ public class ProblemSolver implements  IProblemDefinition{
             results[i] = Integer.bitCount(i);
         }
         return results;
+    }
+
+    @Override
+    public int p746_min_cost_climbing_stairs(int[] arr) {
+        int n = arr.length;
+        int[] cost = new int[n + 1];
+        for (int i = 0; i < n + 1; i++) {
+            cost[i] = -1;
+        }
+        return climbing(arr, n, cost);
+    }
+
+    @Override
+    public int p1025_divisor_game(int n) {
+        return 0;
+    }
+
+    public int climbing(int[] arr, int index, int[] cost) {
+        if(cost[index] != -1) {
+            return cost[index];
+        }
+        if(index == 0 || index == 1) {
+            cost[index] = arr[index];
+            return cost[index];
+        }
+        if(index == arr.length) {
+            cost[index]  =  Math.min(cost[index -1],  cost[index -2 ]);
+            return cost[index];
+        }
+        cost[index] = arr[index] + Math.min(climbing(arr, index - 1, cost), climbing(arr, index - 2, cost));
+        return cost[index];
     }
 }

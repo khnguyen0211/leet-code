@@ -33,6 +33,11 @@ public interface IProblemDefinition {
      */
     int p1942_smallest_chair(int[][] times, int targetFriend);
 
+    /**
+     *
+     * @param n
+     * @return
+     */
     int p1137_tribonacci(int n);
 
     /**
@@ -42,4 +47,20 @@ public interface IProblemDefinition {
      * @return
      */
     int[] p338_count_bits(int n);
+
+    /**
+     * You are given an integer array cost where cost[i] is the cost of ith step on a staircase.
+     * Once you pay the cost, you can either climb one or two steps.
+     * @param cost array
+     * @return min cost to reach the top
+     */
+    int p746_min_cost_climbing_stairs(int[] cost);
+
+    /**
+     *
+     * @param n
+     * @return
+     */
+    int p1025_divisor_game(int n);
 }
+
