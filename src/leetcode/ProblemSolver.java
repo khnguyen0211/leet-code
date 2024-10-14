@@ -216,7 +216,28 @@ public class ProblemSolver implements  IProblemDefinition{
 
     @Override
     public int p1025_divisor_game(int n) {
-        return 0;
+        return n % 2;
+    }
+
+    @Override
+    /**
+     * runtime: 1 ms
+     * beat: 60.80%
+     * memory: 41.54 mb
+     * beat: 67.56%
+     */
+    public int p1668_maximum_repeating_substring(String sequence, String word) {
+        int maxRepeating = 0;
+        String temp = word;
+        if(!sequence.contains(word)) {
+            return maxRepeating;
+        }
+        while(sequence.contains(temp)) {
+            maxRepeating++;
+            temp += word;
+
+        }
+        return maxRepeating;
     }
 
     public int climbing(int[] arr, int index, int[] cost) {

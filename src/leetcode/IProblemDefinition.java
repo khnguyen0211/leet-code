@@ -56,11 +56,15 @@ public interface IProblemDefinition {
      */
     int p746_min_cost_climbing_stairs(int[] cost);
 
+    int p1025_divisor_game(int n);
+
     /**
      *
-     * @param n
-     * @return
+     * For a string sequence, a string word is k-repeating if word concatenated k times is a substring of sequence.
+     * The word's maximum k-repeating value is the highest value k where word is k-repeating in sequence.
+     * If word is not a substring of sequence, word's maximum k-repeating value is 0.
+     * @return maximum repeating of word in sequence
      */
-    int p1025_divisor_game(int n);
+    int p1668_maximum_repeating_substring(String sequence, String word);
 }
 
