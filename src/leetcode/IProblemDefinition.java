@@ -80,5 +80,7 @@ public interface IProblemDefinition {
      * @return
      */
     boolean p217_contains_duplicate(int[] arr);
+
+    boolean p219_contains_nearby_duplicate(int[] arr, int k);
 }
 
