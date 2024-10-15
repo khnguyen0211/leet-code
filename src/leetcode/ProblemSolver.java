@@ -109,8 +109,6 @@ public class ProblemSolver implements  IProblemDefinition{
         return max;
     }
 
-
-
     /**
      * Using monotonic stack
      * Time Limit Exceeded
@@ -219,13 +217,14 @@ public class ProblemSolver implements  IProblemDefinition{
         return n % 2;
     }
 
-    @Override
+
     /**
      * runtime: 1 ms
      * beat: 60.80%
      * memory: 41.54 mb
      * beat: 67.56%
      */
+    @Override
     public int p1668_maximum_repeating_substring(String sequence, String word) {
         int maxRepeating = 0;
         String temp = word;
@@ -254,5 +253,44 @@ public class ProblemSolver implements  IProblemDefinition{
         }
         cost[index] = arr[index] + Math.min(climbing(arr, index - 1, cost), climbing(arr, index - 2, cost));
         return cost[index];
+    }
+
+    /**
+     * runtime: 7 ms
+     * beat: 100%
+     * memory: 45.74 mb
+     * beat: 11.83%
+     */
+    @Override
+    public long p2938_minimum_steps(String s) {
+        char[] chars = s.toCharArray();
+        int n = chars.length;
+        long min_step = 0;
+        long zero_counter = 0;
+        for (int i = n - 1; i >=0 ; i--) {
+            if(chars[i] == '0') {
+                zero_counter++;
+            }
+            if(chars[i] == '1') {
+                min_step += zero_counter;
+            }
+        }
+        return min_step;
+    }
+
+    public long p2938_minimum_steps_v2(String s) {
+        char[] chars = s.toCharArray();
+        int n = chars.length;
+        long min_step = 0;
+        long one_counter = 0;
+        for (char aChar : chars) {
+            if (aChar == '1') {
+                one_counter++;
+            } else {
+                min_step += one_counter;
+            }
+
+        }
+        return min_step;
     }
 }

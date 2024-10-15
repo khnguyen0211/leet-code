@@ -66,5 +66,8 @@ public interface IProblemDefinition {
      * @return maximum repeating of word in sequence
      */
     int p1668_maximum_repeating_substring(String sequence, String word);
+
+    long p2938_minimum_steps(String s);
+
 }
 
