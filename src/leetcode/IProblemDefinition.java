@@ -67,7 +67,18 @@ public interface IProblemDefinition {
      */
     int p1668_maximum_repeating_substring(String sequence, String word);
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     long p2938_minimum_steps(String s);
 
+    /**
+     *
+     * @param arr
+     * @return
+     */
+    boolean p217_contains_duplicate(int[] arr);
 }
 
