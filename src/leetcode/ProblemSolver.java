@@ -313,7 +313,6 @@ public class ProblemSolver implements  IProblemDefinition{
     }
 
 
-
     public boolean p217_contains_duplicate_v2(int[] arr) {
         Set<Integer> setNumber = new HashSet<>();
         for (int i : arr) {
@@ -324,9 +323,7 @@ public class ProblemSolver implements  IProblemDefinition{
 
     @Override
     public boolean p219_contains_nearby_duplicate(int[] arr, int k) {
-
         Map<Integer, Integer> map = new HashMap<>();
-
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(arr[i]) && i - map.get(arr[i]) <= k) {
                 return true;
@@ -335,6 +332,22 @@ public class ProblemSolver implements  IProblemDefinition{
         }
 
         return false;
+    }
+
+    @Override
+    /**
+     * a
+     */
+    public List<String> p2900_get_longest_subsequence(String[] words, int[] groups) {
+        List<String> results = new ArrayList<>();
+        int n = groups.length;
+        results.add(words[0]);
+        for (int i = 1; i < n; i++) {
+            if(groups[i] != groups[i - 1]) {
+                results.add(words[i]);
+            }
+        }
+        return results;
     }
 
 }

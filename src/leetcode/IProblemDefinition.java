@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.List;
+
 public interface IProblemDefinition {
     /**
      * Given a string s, find the first non-repeating character in it and return its index.
@@ -82,5 +84,7 @@ public interface IProblemDefinition {
     boolean p217_contains_duplicate(int[] arr);
 
     boolean p219_contains_nearby_duplicate(int[] arr, int k);
+
+    List<String> p2900_get_longest_subsequence(String[] words, int[] groups);
 }
 
