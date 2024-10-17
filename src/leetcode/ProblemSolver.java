@@ -335,9 +335,6 @@ public class ProblemSolver implements  IProblemDefinition{
     }
 
     @Override
-    /**
-     * a
-     */
     public List<String> p2900_get_longest_subsequence(String[] words, int[] groups) {
         List<String> results = new ArrayList<>();
         int n = groups.length;
@@ -348,6 +345,31 @@ public class ProblemSolver implements  IProblemDefinition{
             }
         }
         return results;
+    }
+
+    /**
+     * runtime: 46ms
+     * beat: 41.16%
+     * memory: 43.97mb
+     * beat: 78.06 %
+     */
+    @Override
+    public int p300_longest_increasing_subsequence(int[] arr) {
+        int n = arr.length;
+        int[] temp = new int[n];
+        Arrays.fill(temp, 1);
+        int max = 1;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if(arr[i] > arr[j]) {
+                    temp[i] = Math.max(temp[i], temp[j] + 1);
+                    if(temp[i] > max) {
+                        max = temp[i];
+                    }
+                }
+            }
+        }
+        return max;
     }
 
 }
