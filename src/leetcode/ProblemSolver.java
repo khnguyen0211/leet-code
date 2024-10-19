@@ -350,6 +350,10 @@ public class ProblemSolver implements IProblemDefinition {
             last[numArr[i] - '0'] = i;
         }
 
+
+        // 98368
+        // [9,8,3,6,8]
+        // [0,0,0,2,0,0,3,0,4,0]
         // Traverse the number from left to right
         for (int i = 0; i < n; i++) {
             // Check if we can find a larger digit to swap
@@ -388,7 +392,6 @@ public class ProblemSolver implements IProblemDefinition {
                     check = false;
                     break;
                 }
-
             }
             if (check) {
                 return true;
@@ -397,4 +400,38 @@ public class ProblemSolver implements IProblemDefinition {
         return false;
     }
 
+    @Override
+    public char p1545_find_Kth_Bit(int n, int k) {
+        String[] store = new String[n + 1];
+        store[1] = "0";
+        for (int i = 2; i <= n; i++) {
+            store[i] = store[i - 1] + "1" + revert(invert(store[i - 1]));
+        }
+        return store[n].toCharArray()[k - 1];
+    }
+
+    public static String revert(String s) {
+        String[] arr = s.split("");
+        int n = arr.length;
+        String reverted = "";
+        for (int i = n - 1; i >= 0; i--) {
+            reverted += arr[i];
+        }
+        return reverted;
+    }
+
+    public static String invert(String s) {
+        String[] arr = s.split("");
+        int n = arr.length;
+        String inverted = "";
+        for (int i = 0; i < n; i++) {
+            if (arr[i].equals("0")) {
+                arr[i] = "1";
+            } else {
+                arr[i] = "0";
+            }
+            inverted += arr[i];
+        }
+        return inverted;
+    }
 }

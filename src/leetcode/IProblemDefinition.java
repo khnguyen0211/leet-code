@@ -33,8 +33,9 @@ public interface IProblemDefinition {
     int p300_longest_increasing_subsequence(int[] arr);
 
     int p670_maximum_swap(int n);
-    
+
     boolean p941_valid_mountain_array(int[] arr);
 
+    char p1545_find_Kth_Bit(int n, int k);
 }
 
