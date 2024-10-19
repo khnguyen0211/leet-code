@@ -367,6 +367,34 @@ public class ProblemSolver implements IProblemDefinition {
         return num;
     }
 
-    
+    @Override
+    public boolean p941_valid_mountain_array(int[] arr) {
+        int n = arr.length;
+        if (n < 3) {
+            return false;
+        }
+        for (int i = 1; i < n - 1; i++) {
+            boolean check = true;
+            // check increasing array before i
+            for (int j = 0; j < i; j++) {
+                if (arr[j] >= arr[j + 1]) {
+                    check = false;
+                    break;
+                }
+            }
+            // check decreasing array before i
+            for (int j = i; j < n - 1; j++) {
+                if (arr[j] <= arr[j + 1]) {
+                    check = false;
+                    break;
+                }
+
+            }
+            if (check) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
