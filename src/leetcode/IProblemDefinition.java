@@ -39,5 +39,7 @@ public interface IProblemDefinition {
     char p1545_find_Kth_Bit(int n, int k);
 
     int p704_binary_search(int[] arr, int key);
+    
+    int p69_my_sqrt(int n);
 }
 

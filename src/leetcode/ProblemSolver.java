@@ -349,11 +349,6 @@ public class ProblemSolver implements IProblemDefinition {
         for (int i = 0; i < n; i++) {
             last[numArr[i] - '0'] = i;
         }
-
-
-        // 98368
-        // [9,8,3,6,8]
-        // [0,0,0,2,0,0,3,0,4,0]
         // Traverse the number from left to right
         for (int i = 0; i < n; i++) {
             // Check if we can find a larger digit to swap
@@ -435,20 +430,40 @@ public class ProblemSolver implements IProblemDefinition {
         return inverted;
     }
 
+    /**
+     * runtime: 0 ms beat: 100% memory: 45.68mb beat: 47.28%
+     */
     @Override
     public int p704_binary_search(int[] arr, int key) {
         int left = 0;
         int right = arr.length;
         while (left <= right) {
             int mid = (left + right) / 2;
-            if(arr[mid] == key) {
+            if (arr[mid] == key) {
                 return mid;
-            } else if(arr[mid] > key) {
+            } else if (arr[mid] > key) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
         return -1;
+    }
+
+    @Override
+    public int p69_my_sqrt(int n) {
+        int left = 1;
+        int right = n;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (mid * mid == n) {
+                return mid;
+            } else if (mid * mid >  n) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return Math.round(right);
     }
 }

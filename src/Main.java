@@ -14,8 +14,8 @@ public class Main {
         // System.out.println(solver.p2938_minimum_steps("11000111"));
         // System.out.println(solver.p217_contains_duplicate(new int[]{9,8,1,0,1,9,4,0,4,1}));
         // System.out.println(solver.p670_maximum_swap(98368));
-        // System.out.println(solver.p941_valid_mountain_array(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8,
-        // 9}));
+        // System.out.println(solver.p941_valid_mountain_array(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));
+        System.out.println(solver.p69_my_sqrt(8));
     }
 
     
