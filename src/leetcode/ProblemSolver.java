@@ -434,4 +434,21 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return inverted;
     }
+
+    @Override
+    public int p704_binary_search(int[] arr, int key) {
+        int left = 0;
+        int right = arr.length;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if(arr[mid] == key) {
+                return mid;
+            } else if(arr[mid] > key) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
 }

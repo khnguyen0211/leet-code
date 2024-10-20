@@ -37,5 +37,7 @@ public interface IProblemDefinition {
     boolean p941_valid_mountain_array(int[] arr);
 
     char p1545_find_Kth_Bit(int n, int k);
+
+    int p704_binary_search(int[] arr, int key);
 }
 
