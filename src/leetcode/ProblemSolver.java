@@ -458,12 +458,59 @@ public class ProblemSolver implements IProblemDefinition {
             int mid = left + (right - left) / 2;
             if (mid * mid == n) {
                 return mid;
-            } else if (mid * mid >  n) {
+            } else if (mid * mid > n) {
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
         return Math.round(right);
+    }
+
+    /**
+     * runtime: 291 ms beat: 5.27% memory: 45.18mb beat: 7.36%
+     */
+    @Override
+    public List<String> p1002_common_chars(String[] words) {
+        int minLength = Integer.MAX_VALUE;
+        Map<String, Integer> myMap = new HashMap<>();
+        List<String> results = new ArrayList<>();
+        String target = "";
+        for (String str : words) {
+            if (str.length() < minLength) {
+                minLength = str.length();
+                target = str;
+            }
+        }
+        String[] arr = target.split("");
+        for (String s : arr) {
+            boolean isContainedAll = true;
+            int frequency = 1;
+            if (myMap.containsKey(s)) {
+                frequency = myMap.get(s) + 1;
+            }
+            for (String word : words) {
+                if (!stringCheckerUtil(word, s, frequency)) {
+                    isContainedAll = false;
+                    break;
+                }
+            }
+            if (isContainedAll) {
+                results.add(s);
+                myMap.put(s, myMap.containsKey(s) ? myMap.get(s) + 1 : 1);
+            }
+        }
+        return results;
+    }
+
+    public boolean stringCheckerUtil(String s, String target, int frequency) {
+        String[] arr = s.split("");
+        int count = 0;
+        for (String elem : arr) {
+            if (elem.equals(target)) {
+                count++;
+            }
+        }
+        return count >= frequency;
     }
 }
