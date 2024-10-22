@@ -45,5 +45,7 @@ public interface IProblemDefinition {
     List<String> p1002_common_chars(String[] words);
 
     int p561_array_pair_sum(int[] arr);
+
+    int p1252_odd_cells(int m, int n, int[][] indices);
 }
 

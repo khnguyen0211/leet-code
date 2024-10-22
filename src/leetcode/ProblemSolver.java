@@ -49,7 +49,7 @@ public class ProblemSolver implements IProblemDefinition {
      */
     @Override
     public int p414_the_third_maximum(int[] arr) {
-        long[] arrMax = { Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE };
+        long[] arrMax = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
         for (int j : arr) {
             insertIntoArray(arrMax, j);
         }
@@ -166,7 +166,8 @@ public class ProblemSolver implements IProblemDefinition {
             tribonacciArray[2] = 1;
             return 2;
         }
-        tribonacciArray[n] = p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
+        tribonacciArray[n] =
+                p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
         return tribonacciArray[n];
     }
 
@@ -520,12 +521,42 @@ public class ProblemSolver implements IProblemDefinition {
     public int p561_array_pair_sum(int[] arr) {
         Arrays.sort(arr);
         int n = arr.length;
-        int sum = 0 ;
+        int sum = 0;
         for (int i = 0; i < n - 1; i += 2) {
             sum += arr[i];
         }
         return sum;
     }
 
-    
+    @Override
+    public int p1252_odd_cells(int m, int n, int[][] indices) {
+        int[][] matrix = new int[m][n];
+        int counter = 0;
+        for (int[] i : indices) {
+            int addedRow = i[0];
+            int addedColumn = i[1];
+            increase_matrix(matrix, addedRow, addedColumn);
+        }
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] % 2 != 0) {
+                    counter++;
+                }
+            }
+        }
+        return counter;
+    }
+
+    public void increase_matrix(int[][] matrix, int addedRow, int addedColumn) {
+        int n = matrix.length;
+        int m = matrix[addedRow].length;
+        for (int i = 0; i < m; i++) {
+            matrix[addedRow][i] += 1; 
+        }
+
+        for (int i = 0; i < n; i++) {
+            matrix[i][addedColumn] += 1;
+        }
+    }
+
 }
