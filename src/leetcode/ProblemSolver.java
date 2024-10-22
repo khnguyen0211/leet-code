@@ -528,6 +528,9 @@ public class ProblemSolver implements IProblemDefinition {
         return sum;
     }
 
+    /**
+     * runtime: ms beat: % memory: mb beat: %
+     */
     @Override
     public int p1252_odd_cells(int m, int n, int[][] indices) {
         int[][] matrix = new int[m][n];
@@ -551,12 +554,28 @@ public class ProblemSolver implements IProblemDefinition {
         int n = matrix.length;
         int m = matrix[addedRow].length;
         for (int i = 0; i < m; i++) {
-            matrix[addedRow][i] += 1; 
+            matrix[addedRow][i] += 1;
         }
 
         for (int i = 0; i < n; i++) {
             matrix[i][addedColumn] += 1;
         }
+    }
+
+    /**
+     * runtime: 2 ms beat: 97.27% memory: 44.37mb beat: 92.49%
+     */
+    @Override
+    public List<Integer> p2200_find_k_distant_indices(int[] arr, int key, int k) {
+        List<Integer> results = new ArrayList<>();
+        for (int i = 0, j = 0; i < arr.length; i++) {
+            if (arr[i] == key) {
+                for (j = Math.max(i - k, j); j <= Math.min(arr.length - 1, i + k); j++) {
+                    results.add(j);
+                }
+            }
+        }
+        return results;
     }
 
 }

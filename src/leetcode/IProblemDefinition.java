@@ -47,5 +47,7 @@ public interface IProblemDefinition {
     int p561_array_pair_sum(int[] arr);
 
     int p1252_odd_cells(int m, int n, int[][] indices);
+
+    List<Integer> p2200_find_k_distant_indices(int[] arr, int key, int k);
 }
 
