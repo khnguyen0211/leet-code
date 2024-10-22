@@ -49,7 +49,7 @@ public class ProblemSolver implements IProblemDefinition {
      */
     @Override
     public int p414_the_third_maximum(int[] arr) {
-        long[] arrMax = {Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE};
+        long[] arrMax = { Long.MIN_VALUE, Long.MIN_VALUE, Long.MIN_VALUE };
         for (int j : arr) {
             insertIntoArray(arrMax, j);
         }
@@ -166,8 +166,7 @@ public class ProblemSolver implements IProblemDefinition {
             tribonacciArray[2] = 1;
             return 2;
         }
-        tribonacciArray[n] =
-                p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
+        tribonacciArray[n] = p1137_tribonacci(n - 1) + p1137_tribonacci(n - 2) + p1137_tribonacci(n - 3);
         return tribonacciArray[n];
     }
 
@@ -513,4 +512,20 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return count >= frequency;
     }
+
+    /**
+     * runtime: 12 ms beat: 97.15% memory: 46.46mb beat: 61.62%
+     */
+    @Override
+    public int p561_array_pair_sum(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        int sum = 0 ;
+        for (int i = 0; i < n - 1; i += 2) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    
 }
