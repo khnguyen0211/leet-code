@@ -631,7 +631,7 @@ public class ProblemSolver implements IProblemDefinition {
             myMap.put(rod, colorsSet);
         }
         for (Map.Entry<Integer, Set<String>> entry : myMap.entrySet()) {
-            if(entry.getValue().size() >= 3) {
+            if (entry.getValue().size() >= 3) {
                 counter++;
             }
         }
@@ -660,5 +660,18 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return counter;
     }
+
+    @Override
+    public int p121_max_profit_first(int[] prices) {
+        int minPrice = prices[0];
+        int maxProfit = 0;
+        for (int price: prices) {
+            minPrice = Math.min(minPrice, price);
+            maxProfit = Math.max(maxProfit, price - minPrice);
+        }
+        return maxProfit;
+    }
+
+    
 
 }

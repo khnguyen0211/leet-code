@@ -53,5 +53,9 @@ public interface IProblemDefinition {
     String p819_most_common_word(String paragraph, String[] banned);
 
     int p2103_count_points(String rings);
+
+    int p121_max_profit_first(int[] prices);
+    
+    int p121_max_profit_second(int[] prices);
 }
 
