@@ -49,5 +49,7 @@ public interface IProblemDefinition {
     int p1252_odd_cells(int m, int n, int[][] indices);
 
     List<Integer> p2200_find_k_distant_indices(int[] arr, int key, int k);
+
+    String p819_most_common_word(String paragraph, String[] banned);
 }
 

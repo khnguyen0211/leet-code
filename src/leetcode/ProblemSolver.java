@@ -578,4 +578,45 @@ public class ProblemSolver implements IProblemDefinition {
         return results;
     }
 
+    /**
+     * runtime: 11 ms beat: 88.15% memory: 43.00mb beat: 56.39%
+     */
+    @Override
+    public String p819_most_common_word(String paragraph, String[] banned) {
+        paragraph = paragraph.replace(".", "-");
+        paragraph = paragraph.replace(",", "-");
+        paragraph = paragraph.replace("!", "-");
+        paragraph = paragraph.replace("?", "-");
+        paragraph = paragraph.replace(";", "-");
+        paragraph = paragraph.replace("'", "-");
+        paragraph = paragraph.replace(" ", "-");
+        paragraph = paragraph.toLowerCase();
+        String[] separatedString = paragraph.split("-");
+        Map<String, Integer> myMap = new HashMap<>();
+        for (String word : separatedString) {
+            if (!word.isEmpty()) {
+                boolean isBanned = false;
+                for (String bannedWord : banned) {
+                    if (word.equals(bannedWord)) {
+                        isBanned = true;
+                        break;
+                    }
+                }
+                if (!isBanned) {
+                    myMap.put(word, myMap.getOrDefault(word, 0) + 1);
+                }
+            }
+
+        }
+        String commonWord = "";
+        int mostFrequent = Integer.MIN_VALUE;
+        for (Map.Entry<String, Integer> entry : myMap.entrySet()) {
+            if (entry.getValue() > mostFrequent) {
+                mostFrequent = entry.getValue();
+                commonWord = entry.getKey();
+            }
+        }
+        return commonWord;
+    }
+
 }
