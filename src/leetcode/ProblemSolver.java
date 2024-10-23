@@ -672,6 +672,15 @@ public class ProblemSolver implements IProblemDefinition {
         return maxProfit;
     }
 
-    
+    @Override
+    public int p121_max_profit_second(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if(prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+        return maxProfit;
+    }
 
 }
