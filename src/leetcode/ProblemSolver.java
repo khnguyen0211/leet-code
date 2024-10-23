@@ -619,4 +619,46 @@ public class ProblemSolver implements IProblemDefinition {
         return commonWord;
     }
 
+    @Override
+    public int p2103_count_points(String rings) {
+        Map<Integer, Set<String>> myMap = new HashMap<>();
+        int counter = 0;
+        String[] arr = rings.split("");
+        for (int i = 1; i < arr.length; i += 2) {
+            Integer rod = Integer.valueOf(arr[i]);
+            Set<String> colorsSet = myMap.getOrDefault(rod, new HashSet<>());
+            colorsSet.add(arr[i - 1]);
+            myMap.put(rod, colorsSet);
+        }
+        for (Map.Entry<Integer, Set<String>> entry : myMap.entrySet()) {
+            if(entry.getValue().size() >= 3) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    public int p2103_count_points_v2(String rings) {
+        // B0B6G0R6R0R6G9
+        int n = rings.length();
+        String[] arr = rings.split("");
+        Set<Integer> rods = new HashSet<>();
+        for (int i = 1; i < n; i += 2) {
+            rods.add(Integer.valueOf(arr[i]));
+        }
+        int counter = 0;
+        for (Integer rod : rods) {
+            Set<String> colors = new HashSet<>();
+            for (int i = 0; i < arr.length; i += 2) {
+                if (Objects.equals(Integer.valueOf(arr[i + 1]), rod)) {
+                    colors.add(arr[i]);
+                }
+            }
+            if (colors.size() == 3) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
 }

@@ -51,5 +51,7 @@ public interface IProblemDefinition {
     List<Integer> p2200_find_k_distant_indices(int[] arr, int key, int k);
 
     String p819_most_common_word(String paragraph, String[] banned);
+
+    int p2103_count_points(String rings);
 }
 
