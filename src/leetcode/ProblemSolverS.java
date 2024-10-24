@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 import static java.util.Arrays.sort;
 
-public class ProblemSolver implements IProblemDefinition {
+public class ProblemSolverS implements IProblemDefinition {
 
     /**
      * runtime: 13 ms beat: 65.92% memory: 45.18 mb beat: 51.11%
@@ -673,7 +673,7 @@ public class ProblemSolver implements IProblemDefinition {
     }
 
     @Override
-    public int p121_max_profit_second(int[] prices) {
+    public int p122_max_profit_second(int[] prices) {
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
             if(prices[i] > prices[i - 1]) {
@@ -682,5 +682,27 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return maxProfit;
     }
+
+    @Override
+    public int p11_max_area(int[] heights) {
+        int i = 0;
+        int j = heights.length - 1; 
+        int maxValue = 0;       
+        while(i <= j) {
+            int height = Math.min(heights[i], heights[j]);
+            int width = j - i;
+            if(height * width > maxValue) {
+                maxValue = height * width;
+            }
+            while(i <= j && heights[i] <= height) {
+                i++;
+            }
+            while (i <= j && heights[j] <= height) {
+                j--;
+            }
+        }
+        return maxValue;
+     }
+    
 
 }

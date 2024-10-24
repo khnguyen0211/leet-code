@@ -56,6 +56,8 @@ public interface IProblemDefinition {
 
     int p121_max_profit_first(int[] prices);
     
-    int p121_max_profit_second(int[] prices);
+    int p122_max_profit_second(int[] prices);
+
+    int p11_max_area(int[] height);
 }
 
