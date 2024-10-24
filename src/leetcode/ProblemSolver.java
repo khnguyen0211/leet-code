@@ -665,7 +665,7 @@ public class ProblemSolver implements IProblemDefinition {
     public int p121_max_profit_first(int[] prices) {
         int minPrice = prices[0];
         int maxProfit = 0;
-        for (int price: prices) {
+        for (int price : prices) {
             minPrice = Math.min(minPrice, price);
             maxProfit = Math.max(maxProfit, price - minPrice);
         }
@@ -676,25 +676,29 @@ public class ProblemSolver implements IProblemDefinition {
     public int p122_max_profit_second(int[] prices) {
         int maxProfit = 0;
         for (int i = 1; i < prices.length; i++) {
-            if(prices[i] > prices[i - 1]) {
+            if (prices[i] > prices[i - 1]) {
                 maxProfit += prices[i] - prices[i - 1];
             }
         }
         return maxProfit;
     }
 
+
+    /**
+     * runtime: 2 ms beat: 99.13% memory: 53.13mb beat: 20.13%
+     */
     @Override
     public int p11_max_area(int[] heights) {
         int i = 0;
-        int j = heights.length - 1; 
-        int maxValue = 0;       
-        while(i <= j) {
+        int j = heights.length - 1;
+        int maxValue = 0;
+        while (i <= j) {
             int height = Math.min(heights[i], heights[j]);
             int width = j - i;
-            if(height * width > maxValue) {
+            if (height * width > maxValue) {
                 maxValue = height * width;
             }
-            while(i <= j && heights[i] <= height) {
+            while (i <= j && heights[i] <= height) {
                 i++;
             }
             while (i <= j && heights[j] <= height) {
@@ -702,7 +706,32 @@ public class ProblemSolver implements IProblemDefinition {
             }
         }
         return maxValue;
-     }
+    }
     
+    /**
+     * runtime: 16 ms beat: 96.13% memory: 54.68mb beat: 74.76%
+     */
+    @Override
+    public int p881_num_rescue_boats(int[] people, int limit) {
+        Arrays.sort(people);
+        int i = 0;
+        int j = people.length - 1;
+        int boats = 0;
+        int abandon = 0;
+        while (i <= j) {
+            if (people[i] + people[j] <= limit) {
+                i++;
+                j--;
+                boats++;
+            } else {
+                while (i <= j && people[j] > limit - people[i]) {
+                    abandon++;
+                    j--;
+                }
+            }
+        }
+        return boats + abandon;
+    }
+
 
 }

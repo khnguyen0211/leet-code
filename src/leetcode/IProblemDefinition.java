@@ -59,5 +59,7 @@ public interface IProblemDefinition {
     int p122_max_profit_second(int[] prices);
 
     int p11_max_area(int[] height);
+
+    int p881_num_rescue_boats(int[] people, int limit);
 }
 
