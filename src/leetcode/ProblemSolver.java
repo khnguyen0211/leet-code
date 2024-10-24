@@ -3,7 +3,7 @@ package leetcode;
 import java.util.*;
 import static java.util.Arrays.sort;
 
-public class ProblemSolverS implements IProblemDefinition {
+public class ProblemSolver implements IProblemDefinition {
 
     /**
      * runtime: 13 ms beat: 65.92% memory: 45.18 mb beat: 51.11%
