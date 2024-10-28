@@ -5,6 +5,18 @@ import static java.util.Arrays.sort;
 
 public class ProblemSolver implements IProblemDefinition {
 
+    @Override
+    public int[] p1_two_sum(int[] arr, int target) {
+        Map<Integer, Integer> myMap = new HashMap<>();
+        for(int i = 0; i < arr.length; i++) {
+            int x = target - arr[i];
+            if(myMap.containsKey(x)) {
+                return new int[] {i, myMap.get(x)};
+            }
+            myMap.put(arr[i], i);
+        }
+        return new int[] {-1, -1};
+    }
     /**
      * runtime: 13 ms beat: 65.92% memory: 45.18 mb beat: 51.11%
      */
@@ -707,7 +719,7 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return maxValue;
     }
-    
+
     /**
      * runtime: 16 ms beat: 96.13% memory: 54.68mb beat: 74.76%
      */
@@ -732,6 +744,7 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return boats + abandon;
     }
+
 
 
 }

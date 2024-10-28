@@ -4,6 +4,9 @@ import java.util.List;
 
 public interface IProblemDefinition {
 
+    int[] p1_two_sum(int[] arr, int target);
+
+
     int p387_first_unique_char(String s);
 
     int p414_the_third_maximum(int[] arr);
@@ -55,11 +58,10 @@ public interface IProblemDefinition {
     int p2103_count_points(String rings);
 
     int p121_max_profit_first(int[] prices);
-    
+
     int p122_max_profit_second(int[] prices);
 
     int p11_max_area(int[] height);
 
     int p881_num_rescue_boats(int[] people, int limit);
 }
-
