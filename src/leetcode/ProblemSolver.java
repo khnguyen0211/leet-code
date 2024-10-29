@@ -5,18 +5,21 @@ import static java.util.Arrays.sort;
 
 public class ProblemSolver implements IProblemDefinition {
 
+    public ProblemSolver() {}
+
     @Override
     public int[] p1_two_sum(int[] arr, int target) {
         Map<Integer, Integer> myMap = new HashMap<>();
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int x = target - arr[i];
-            if(myMap.containsKey(x)) {
+            if (myMap.containsKey(x)) {
                 return new int[] {i, myMap.get(x)};
             }
             myMap.put(arr[i], i);
         }
         return new int[] {-1, -1};
     }
+
     /**
      * runtime: 13 ms beat: 65.92% memory: 45.18 mb beat: 51.11%
      */
@@ -745,6 +748,31 @@ public class ProblemSolver implements IProblemDefinition {
         return boats + abandon;
     }
 
-
+    /**
+     * runtime: 0 ms beat: 100% memory: 41.40mb beat: 88.66%
+     */
+    @Override
+    public List<String> p228_summary_ranges(int[] arr) {
+        int i = 0;
+        int j = 0;
+        List<String> results = new ArrayList<>();
+        while (i < arr.length && j < arr.length) {
+            StringBuilder s = new StringBuilder();
+            s.append(arr[i]);
+            j = i + 1;
+            boolean flag = false;
+            while (j < arr.length && arr[i] + 1 == arr[j] ) {
+                flag = true;
+                i++;
+                j++;
+            }
+            if (flag) {
+                s.append("->").append(arr[j - 1]) ;
+            }
+            results.add(s.toString());
+            i++;
+        }
+        return results;
+    }
 
 }

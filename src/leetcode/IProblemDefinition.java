@@ -6,7 +6,6 @@ public interface IProblemDefinition {
 
     int[] p1_two_sum(int[] arr, int target);
 
-
     int p387_first_unique_char(String s);
 
     int p414_the_third_maximum(int[] arr);
@@ -64,4 +63,6 @@ public interface IProblemDefinition {
     int p11_max_area(int[] height);
 
     int p881_num_rescue_boats(int[] people, int limit);
+
+    List<String> p228_summary_ranges(int[] arr);
 }
