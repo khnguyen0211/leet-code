@@ -761,18 +761,29 @@ public class ProblemSolver implements IProblemDefinition {
             s.append(arr[i]);
             j = i + 1;
             boolean flag = false;
-            while (j < arr.length && arr[i] + 1 == arr[j] ) {
+            while (j < arr.length && arr[i] + 1 == arr[j]) {
                 flag = true;
                 i++;
                 j++;
             }
             if (flag) {
-                s.append("->").append(arr[j - 1]) ;
+                s.append("->").append(arr[j - 1]);
             }
             results.add(s.toString());
             i++;
         }
         return results;
+    }
+
+    @Override
+    public int p268_missing_number(int[] arr) {
+        Arrays.sort(arr);
+        int i = 0;
+        while (arr[i] + 1 == arr[i + 1]) {
+            i++;
+        }
+        return arr[i] + 1;
+
     }
 
 }

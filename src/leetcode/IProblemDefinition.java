@@ -65,4 +65,6 @@ public interface IProblemDefinition {
     int p881_num_rescue_boats(int[] people, int limit);
 
     List<String> p228_summary_ranges(int[] arr);
+
+    int p268_missing_number(int[] arr);
 }

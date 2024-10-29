@@ -17,6 +17,7 @@ public class Main {
         // System.out.println(solver.p941_valid_mountain_array(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));
         // System.out.println(solver.p69_my_sqrt(8));
         // System.out.println(solver.p819_most_common_word("Bob hit a ball, ! the hit BALL flew far after it was hit.", args));
-        System.out.println(solver.p228_summary_ranges(new int[]{0, 1, 2, 4, 5, 7}));
+        // System.out.println(solver.p228_summary_ranges(new int[]{0, 1, 2, 4, 5, 7}));
+        System.out.println(solver.p268_missing_number(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
     }
 }
