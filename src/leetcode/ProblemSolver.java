@@ -797,4 +797,23 @@ public class ProblemSolver implements IProblemDefinition {
         return n == 1 ? arr[0] : arr[n - 1];
     }
 
+    /**
+     * runtime: 0 ms beat: 100% memory: 40.19mb beat: 96.42%
+     */
+    @Override
+    public boolean p202_is_happy_number(int n) {
+        int countHandler = 0;
+        while (countHandler < 7 && calculate_happy_number(n) != 1) {
+            n = calculate_happy_number(n);
+            countHandler++;
+        }
+        return !(countHandler == 7);
+    }
+
+    public int calculate_happy_number(int n) {
+        if (n % 10 == n) {
+            return n * n;
+        }
+        return (int) Math.pow((n % 10), 2) + calculate_happy_number(n / 10);
+    }
 }
