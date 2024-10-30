@@ -783,7 +783,18 @@ public class ProblemSolver implements IProblemDefinition {
             i++;
         }
         return arr[i] + 1;
+    }
 
+    @Override
+    public int p136_single_number(int[] arr) {
+        Arrays.sort(arr);
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i += 2) {
+            if (arr[i] != arr[i + 1]) {
+                return arr[i];
+            }
+        }
+        return n == 1 ? arr[0] : arr[n - 1];
     }
 
 }
