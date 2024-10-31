@@ -5,8 +5,6 @@ import static java.util.Arrays.sort;
 
 public class ProblemSolver implements IProblemDefinition {
 
-    public ProblemSolver() {}
-
     @Override
     public int[] p1_two_sum(int[] arr, int target) {
         Map<Integer, Integer> myMap = new HashMap<>();
@@ -856,7 +854,7 @@ public class ProblemSolver implements IProblemDefinition {
         Collections.sort(numList);
         int n = numList.size();
         for (int i = 0; i < n - 1; i++) {
-            Integer a =  numList.get(i);
+            Integer a = numList.get(i);
             Integer b = numList.get(i + 1);
             if (b - a == 1) {
                 if (intMap.get(a) + intMap.get(b) > max) {
@@ -865,5 +863,37 @@ public class ProblemSolver implements IProblemDefinition {
             }
         }
         return max;
+    }
+
+    /**
+     * runtime: 2 ms beat: 97.11% 
+     */
+    @Override
+    public int[] p349_intersection(int[] a, int[] b) {
+        return a.length > b.length ? count_common_element(get_set_from_array(a), b)
+                : count_common_element(get_set_from_array(b), a);
+    }
+
+    public Set<Integer> get_set_from_array(int[] arr) {
+        Set<Integer> setA = new HashSet<>();
+        for (int i : arr) {
+            setA.add(i);
+        }
+        return setA;
+    }
+
+    public int[] count_common_element(Set<Integer> set, int[] arr) {
+        Set<Integer> setResult = new HashSet<>();
+        for (int i : arr) {
+            if (set.contains(i)) {
+                setResult.add(i);
+            }
+        }
+        int[] result = new int[setResult.size()];
+        int i = 0;
+        for (Integer val : setResult) {
+            result[i++] = val;
+        }
+        return result;
     }
 }
