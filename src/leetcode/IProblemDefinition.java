@@ -71,4 +71,6 @@ public interface IProblemDefinition {
     int p136_single_number(int[] arr);
 
     boolean p202_is_happy_number(int n);
+
+    List<Integer> p448_find_disappeared_numbers(int[] arr);
 }

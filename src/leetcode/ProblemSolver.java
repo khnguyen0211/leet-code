@@ -816,4 +816,23 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return (int) Math.pow((n % 10), 2) + calculate_happy_number(n / 10);
     }
+
+    /**
+     * runtime: 17 ms beat: 37.06% memory: 55.48mb beat: 14.06%
+     */
+    @Override
+    public List<Integer> p448_find_disappeared_numbers(int[] arr) {
+        int n = arr.length;
+        Set<Integer> numSet = new HashSet<>();
+        List<Integer> result = new ArrayList<>();
+        for (int i : arr) {
+            numSet.add(i);
+        }
+        for (int i = 1; i <= n; i++) {
+            if (!numSet.contains(i)) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
 }
