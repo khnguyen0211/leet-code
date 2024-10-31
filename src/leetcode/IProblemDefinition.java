@@ -73,4 +73,6 @@ public interface IProblemDefinition {
     boolean p202_is_happy_number(int n);
 
     List<Integer> p448_find_disappeared_numbers(int[] arr);
+
+    int p575_distribute_candies(int[] candyType);
 }

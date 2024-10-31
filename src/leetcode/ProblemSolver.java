@@ -835,4 +835,13 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return result;
     }
+
+    @Override
+    public int p575_distribute_candies(int[] candyType) {
+        Set<Integer> types = new HashSet<>();
+        for (int i : candyType) {
+            types.add(i);
+        }
+        return candyType.length / 2 > types.size() ? types.size() :  candyType.length / 2;
+    }
 }
