@@ -842,6 +842,28 @@ public class ProblemSolver implements IProblemDefinition {
         for (int i : candyType) {
             types.add(i);
         }
-        return candyType.length / 2 > types.size() ? types.size() :  candyType.length / 2;
+        return candyType.length / 2 > types.size() ? types.size() : candyType.length / 2;
+    }
+
+    @Override
+    public int p594_find_longest_harmonious_subsequence(int[] arr) {
+        int max = 0;
+        Map<Integer, Integer> intMap = new HashMap<>();
+        for (int i : arr) {
+            intMap.put(i, intMap.getOrDefault(i, 0) + 1);
+        }
+        List<Integer> numList = new ArrayList<>(intMap.keySet());
+        Collections.sort(numList);
+        int n = numList.size();
+        for (int i = 0; i < n - 1; i++) {
+            Integer a =  numList.get(i);
+            Integer b = numList.get(i + 1);
+            if (b - a == 1) {
+                if (intMap.get(a) + intMap.get(b) > max) {
+                    max = intMap.get(a) + intMap.get(b);
+                }
+            }
+        }
+        return max;
     }
 }

@@ -75,4 +75,6 @@ public interface IProblemDefinition {
     List<Integer> p448_find_disappeared_numbers(int[] arr);
 
     int p575_distribute_candies(int[] candyType);
+
+    int p594_find_longest_harmonious_subsequence(int[] arr);
 }
