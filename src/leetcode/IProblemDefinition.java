@@ -79,5 +79,8 @@ public interface IProblemDefinition {
     int p594_find_longest_harmonious_subsequence(int[] arr);
 
     int[] p349_intersection(int[] a, int[] b);
+
     String p1957_make_fancy_string(String s);
+
+    String p151_reverse_words(String s);
 }

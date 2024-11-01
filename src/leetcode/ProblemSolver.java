@@ -910,4 +910,20 @@ public class ProblemSolver implements IProblemDefinition {
         }
         return rs.toString();
     }
+
+    /**
+     * runtime: 6 ms beat: 85.55%
+     */
+    @Override
+    public String p151_reverse_words(String s) {
+        s = s.replaceAll("\\s+", " ").trim();
+        String[] arr = s.split(" ");
+        StringBuilder rs = new StringBuilder();
+        for (int i = arr.length - 1; i > 0; i--) {
+            rs.append(arr[i]);
+            rs.append(" ");
+        }
+        rs.append(arr[0]);
+        return rs.toString();
+    }
 }
