@@ -866,7 +866,7 @@ public class ProblemSolver implements IProblemDefinition {
     }
 
     /**
-     * runtime: 2 ms beat: 97.11% 
+     * runtime: 2 ms beat: 97.11%
      */
     @Override
     public int[] p349_intersection(int[] a, int[] b) {
@@ -895,5 +895,19 @@ public class ProblemSolver implements IProblemDefinition {
             result[i++] = val;
         }
         return result;
+    }
+
+    @Override
+    public String p1957_make_fancy_string(String s) {
+        char[] c = s.toCharArray();
+        int n = c.length;
+        StringBuilder rs = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            if (i + 2 < n && c[i] == c[i + 1] && c[i + 1] == c[i + 2]) {
+                continue;
+            }
+            rs.append(c[i]) ;
+        }
+        return rs.toString();
     }
 }
