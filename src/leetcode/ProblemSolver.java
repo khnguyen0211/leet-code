@@ -906,7 +906,7 @@ public class ProblemSolver implements IProblemDefinition {
             if (i + 2 < n && c[i] == c[i + 1] && c[i + 1] == c[i + 2]) {
                 continue;
             }
-            rs.append(c[i]) ;
+            rs.append(c[i]);
         }
         return rs.toString();
     }
@@ -926,4 +926,23 @@ public class ProblemSolver implements IProblemDefinition {
         rs.append(arr[0]);
         return rs.toString();
     }
+
+    /**
+     * runtime: 1 ms beat: 96.81%
+     */
+    @Override
+    public boolean p2490_is_circular_sentence(String sentence) {
+        String[] a = sentence.split(" ");
+        int n = a.length;
+        if (a[n - 1].charAt(a[n - 1].length() - 1) != a[0].charAt(0)) {
+            return false;
+        }
+        for (int i = 0; i < n - 1; i++) {
+            if (a[i].charAt(a[i].length() - 1) != a[i + 1].charAt(0)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

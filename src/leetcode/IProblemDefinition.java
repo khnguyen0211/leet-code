@@ -83,4 +83,6 @@ public interface IProblemDefinition {
     String p1957_make_fancy_string(String s);
 
     String p151_reverse_words(String s);
+
+    boolean p2490_is_circular_sentence(String sentence);
 }
