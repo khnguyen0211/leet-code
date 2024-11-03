@@ -945,4 +945,108 @@ public class ProblemSolver implements IProblemDefinition {
         return true;
     }
 
+    /**
+     * 1 ms Beats 57.95%
+     */
+    @Override
+    public List<String> p17_letter_combinations(String digits) {
+        if (digits.isEmpty()) {
+            return new ArrayList<>();
+        }
+        String[] letters =
+                new String[] {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+
+        String[] numbers = digits.split("");
+        List<List<String>> stringLists = new ArrayList<>();
+        for (String num : numbers) {
+            int number = Integer.parseInt(num);
+            String[] arr = letters[number].split("");
+            List<String> arrString = new ArrayList<>();
+            arrString.addAll(Arrays.asList(arr));
+            stringLists.add(arrString);
+        }
+        return combine_all_list(stringLists);
+    }
+
+    public List<String> combine_all_list(List<List<String>> lists) {
+        List<List<String>> results = new ArrayList<>();
+        int n = lists.size();
+        results.add(lists.get(0));
+        for (int i = 0; i < n - 1; i++) {
+            results.add(combine_two_string_list(results.get(i), lists.get(i + 1)));
+        }
+        return results.get(n - 1);
+    }
+
+    public List<String> combine_two_string_list(List<String> a, List<String> b) {
+        List<String> combines = new ArrayList<>();
+        for (String i : a) {
+            for (String j : b) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(i);
+                sb.append(j);
+                combines.add(sb.toString());
+            }
+        }
+        return combines;
+    }
+
+    @Override
+    public boolean p416_can_partition(int[] arr) {
+        Arrays.sort(arr);
+        int halfSum = 0;
+        for (int e : arr) {
+            halfSum += e;
+        }
+        halfSum = halfSum / 2;
+        int sum = 0;
+        int i = 0;
+        while (sum < halfSum) {
+            sum += arr[++i];
+            if (sum == halfSum) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 1 ms Beats 15.90%
+     */
+    @Override
+    public boolean p796_rotate_string(String s, String goal) {
+        /*
+         * 0 ms Beats 100%
+         * (s + s).contains(goal) ?
+         */
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        char[] arr1 = s.toCharArray();
+        char[] arr2 = goal.toCharArray();
+        int n = arr1.length;
+        int i = 0;
+        while (i < n) {
+            if (compare_two_char_arrays(arr1, arr2)) {
+                return true;
+            }
+            char c = arr1[0];
+            for (int j = 0; j < n - 1; j++) {
+                arr1[j] = arr1[j + 1];
+            }
+            arr1[n - 1] = c;
+            i++;
+        }
+        return false;
+    }
+
+    public boolean compare_two_char_arrays(char[] arr1, char[] arr2) {
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

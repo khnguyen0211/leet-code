@@ -85,4 +85,10 @@ public interface IProblemDefinition {
     String p151_reverse_words(String s);
 
     boolean p2490_is_circular_sentence(String sentence);
+
+    List<String> p17_letter_combinations(String digits);
+
+    boolean p416_can_partition(int[] arr);
+
+    boolean p796_rotate_string(String s, String goal);
 }
