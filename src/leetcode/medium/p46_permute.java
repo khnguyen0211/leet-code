@@ -28,7 +28,6 @@ public class p46_permute {
                     rs.addAll(Arrays.asList(selections));
                     results.add(rs);
                 }
-
             } else {
                 backtrack(currentIndex + 1, arr, selections, results);
             }
