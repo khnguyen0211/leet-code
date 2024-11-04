@@ -10,11 +10,11 @@ FUNCTION DNF(colors)
     WHILE mid <= high DO
         SWITCH colors[mid] DO
             CASE 0:
-                CALL swap_to_numbers(colors, low, mid)
+                CALL swap_to_numbers(colors, low++, mid++)
             CASE 1:
-                INCREMENT mid
+                mid++
             CASE 2:
-                CALL swap_to_numbers(colors, mid, high)
+                CALL swap_to_numbers(colors, mid, high--)
             DEFAULT:
                 THROW AssertionError
         END SWITCH
