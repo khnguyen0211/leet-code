@@ -13,24 +13,23 @@ public class p75_sort_colors {
         while (mid <= high) {
             switch (colors[mid]) {
                 case 0 -> {
-                    int temp = colors[low];
-                    colors[low] = colors[mid];
-                    colors[mid] = temp;
-                    low++;
-                    mid++;
+                    swap_to_numbers(colors, low++, mid++);
                 }
                 case 1 -> {
                     mid++;
                 }
                 case 2 -> {
-                    int temp2 = colors[mid];
-                    colors[mid] = colors[high];
-                    colors[high] = temp2;
-                    high--;
+                    swap_to_numbers(colors, mid, high--);
                 }
                 default -> throw new AssertionError();
             }
         }
+    }
+
+    public static void swap_to_numbers(int[] colors, int a, int b) {
+        int c = colors[a];
+        colors[a] = colors[b];
+        colors[b] = c;
     }
 
     /*
