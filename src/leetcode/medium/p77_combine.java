@@ -43,7 +43,6 @@ public class p77_combine {
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < selections.length; i++) {
             result.add(selections[i]);
-          
         }
         results.add(result);
     }
