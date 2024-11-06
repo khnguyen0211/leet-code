@@ -1,3 +1,5 @@
+package leetcode.easy;
+
 public class p58_length_of_last_word {
 
     /*
@@ -23,6 +25,6 @@ public class p58_length_of_last_word {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(length_of_last_word("abc"));
     }
 }
