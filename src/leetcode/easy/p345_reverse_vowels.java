@@ -1,6 +1,9 @@
 package leetcode.easy;
 
 public class p345_reverse_vowels {
+    /*
+     * Runtime 3 ms Beats 84.74%
+     */
     public static String reverse_vowels(String s) {
         char[] chars = s.toCharArray();
         int i = 0;
