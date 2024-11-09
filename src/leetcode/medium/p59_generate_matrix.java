@@ -4,7 +4,7 @@ public class p59_generate_matrix {
     /*
      * Runtime 0 ms Beats 100.00%
      */
-    public static int[][] p59_generate_matrix(int n) {
+    public static int[][] generate_matrix(int n) {
         int[][] matrix = new int[n][n];
         int loops = n % 2 == 0 ? n / 2 : (n / 2) + 1;
         int current_value = 1;
@@ -59,7 +59,7 @@ public class p59_generate_matrix {
     }
 
     public static void main(String[] args) {
-        int[][] rs = p59_generate_matrix(1);
+        int[][] rs = generate_matrix(1);
         printMatrix(rs);
     }
 }
