@@ -1,7 +1,6 @@
+package leetcode.medium;
 
 import java.util.Arrays;
-
-
 
 public class p2563_count_fair_pairs {
     /*
