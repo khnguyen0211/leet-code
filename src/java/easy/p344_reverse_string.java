@@ -1,4 +1,4 @@
-package leetcode.easy;
+package java.easy;
 
 public class p344_reverse_string {
 

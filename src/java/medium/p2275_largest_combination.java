@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p2275_largest_combination {
     public static int largest_combination(int[] candidates) {

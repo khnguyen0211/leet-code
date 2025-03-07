@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p3163_compressed_string {
     /*

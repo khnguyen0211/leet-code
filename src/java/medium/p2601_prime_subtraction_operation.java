@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p2601_prime_subtraction_operation {
     /*

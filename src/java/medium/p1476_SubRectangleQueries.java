@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p1476_SubRectangleQueries {
     private final int[][] rectangle;

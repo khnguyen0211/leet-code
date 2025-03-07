@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p3011_can_sort_array {
 

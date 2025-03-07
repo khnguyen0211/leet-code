@@ -1,4 +1,4 @@
-package leetcode.easy;
+package java.easy;
 
 public class p58_length_of_last_word {
 

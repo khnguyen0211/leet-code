@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p1829_get_maximum_xor {
     /*

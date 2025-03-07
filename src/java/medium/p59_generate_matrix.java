@@ -1,4 +1,4 @@
-package leetcode.medium;
+package java.medium;
 
 public class p59_generate_matrix {
     /*

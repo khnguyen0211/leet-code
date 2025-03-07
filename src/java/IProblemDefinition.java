@@ -1,4 +1,4 @@
-package leetcode;
+package java;
 
 import java.util.List;
 

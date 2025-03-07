@@ -1,4 +1,4 @@
-package leetcode.easy;
+package java.easy;
 
 public class p1652_decrypt {
     public static int[] decrypt(int[] code, int k) {
