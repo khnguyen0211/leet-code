@@ -1,3 +1,4 @@
+package java.easy;
 
 import java.util.Arrays;
 
